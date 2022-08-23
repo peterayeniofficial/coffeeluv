@@ -38,6 +38,8 @@ export class CoffeesService {
     const existingCoffee = this.findOne(id);
     if (existingCoffee) {
       // update the existing entity
+      const coffeeIndex = this.coffees.findIndex((item) => item.id === +id);
+      this.coffees[coffeeIndex] = { ...existingCoffee, ...updateCoffeeDto };
     }
   }
 
